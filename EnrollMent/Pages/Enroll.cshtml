@@ -1,0 +1,78 @@
+﻿@page
+@model EnrollMent.Pages.EnrollModel
+@{
+}
+<div class="container">
+    
+            <h1>Enrollement</h1>
+            <form method="post">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input class="form-control" asp-for="Student.StudName" />
+                </div>
+                <div class="form-group">
+                    <label>Age</label>
+                    <input class="form-control" asp-for="Student.StudAge" />
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input class="form-control" asp-for="Student.StudAddress" />
+                </div>
+                <div class="form-group">
+                    <label>Course</label>
+                    <input class="form-control" asp-for="Student.StudCourse" />
+                </div>
+                <div class="form-group">
+                    <label>Year</label>
+                    <input class="form-control" asp-for="Student.StudSCYear" />
+                </div>
+                <div class="form-group">
+                    <label>School</label>
+                    <input class="form-control" asp-for="Student.StudSchool" />
+                </div>
+                <div class="form-group">
+                    <label>Street</label>
+                    <input class="form-control" asp-for="Student.StudStreet" />
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input class="form-control" asp-for="Student.StudCity" />
+                </div>
+                <button class="btn btn-primary" type="submit">Enroll</button>
+            </form>
+    
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Course</th>
+            <th>Year</th>
+            <th>School</th>
+            <th>Street</th>
+            <th>City</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Students in Model.Students)
+        {
+            <tr>
+                <td>@Students.StudID</td>
+                <td>@Students.StudName</td>
+                <td>@Students.StudAge</td>
+                <td>@Students.StudAddress</td>
+                <td>@Students.StudCourse</td>
+                <td>@Students.StudSCYear</td>
+                <td>@Students.StudSchool</td>
+                <td>@Students.StudStreet</td>
+                <td>@Students.StudCity</td>
+                
+                
+                <td><a asp-page="Edit" asp-route-id="@Students.StudID">Edit</a>|<a asp-page="Registration" asp-page-handler="Delete" asp-route-id="@Students.StudID">Delete</a></td>|
+            </tr>
+        }
+    </tbody>
+</table>
