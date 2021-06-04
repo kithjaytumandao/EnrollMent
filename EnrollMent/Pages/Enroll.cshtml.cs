@@ -17,9 +17,9 @@ namespace EnrollMent.Pages
         [BindProperty]
         public Student Student { get; set; }
         public List<Student> Students = new List<Student>();
-        public void OnGet(int id)
+        public void OnGet()
         {
-            Student = _enrollmentdbcontext.Students.FirstOrDefault(Student => Student.StudID == id);
+            Students = _enrollmentdbcontext.Students.ToList();
         }
         public ActionResult OnPost()
         {
@@ -41,6 +41,9 @@ namespace EnrollMent.Pages
             {
                 _enrollmentdbcontext.Students.Remove(Student);
                 _enrollmentdbcontext.SaveChanges();
+                OnGet();
+
+
             }
             
 

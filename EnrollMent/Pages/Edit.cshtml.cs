@@ -16,6 +16,7 @@ namespace EnrollMent.Pages
 
         }
         private readonly EnrollDBContext _enrollmentdbcontext;
+        [BindProperty]
         public Student Student { get; set; }
       
         public void OnGet(int id)
