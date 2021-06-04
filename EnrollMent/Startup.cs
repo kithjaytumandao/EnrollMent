@@ -1,4 +1,4 @@
-using EnrollMent.Models;
+﻿using EnrollMent.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EnrollMent.Data;
 
 namespace EnrollMent
 {
@@ -27,6 +28,9 @@ namespace EnrollMent
         {
             services.AddDbContext<EnrollDBContext>(options=>options.UseSqlServer(Configuration.GetConnectionString("Constring")));
             services.AddRazorPages();
+
+            services.AddDbContext<EnrollMentContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("EnrollMentContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

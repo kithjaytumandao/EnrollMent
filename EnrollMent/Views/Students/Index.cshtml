@@ -1,0 +1,77 @@
+﻿@model IEnumerable<EnrollMent.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudAge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudCourse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudSCYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudSchool)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudStreet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudCity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudCourse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudSCYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudSchool)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudStreet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudCity)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.StudID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.StudID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.StudID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
